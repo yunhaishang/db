@@ -1,0 +1,119 @@
+[2025-08-04 15:36:08.389 INF] : Campus Trade API 启动完成
+[2025-08-04 15:36:08.456 INF] CampusTrade.API.Services.Background.NotificationBackgroundService: 通知发送后台服务启动
+[2025-08-04 15:36:09.338 INF] CampusTrade.API.Services.ScheduledTasks.TokenCleanupTask: 定时任务 TokenCleanupTask 开始启动
+[2025-08-04 15:36:09.344 INF] CampusTrade.API.Services.ScheduledTasks.TokenCleanupTask: 定时任务 TokenCleanupTask 启动完成，执行间隔: "01:00:00"
+[2025-08-04 15:36:09.345 INF] CampusTrade.API.Services.ScheduledTasks.TokenCleanupTask: 定时任务 TokenCleanupTask 开始执行 (第 1 次)
+[2025-08-04 15:36:09.349 INF] CampusTrade.API.Services.ScheduledTasks.LogCleanupTask: 定时任务 LogCleanupTask 开始启动
+[2025-08-04 15:36:09.353 INF] CampusTrade.API.Services.ScheduledTasks.LogCleanupTask: 定时任务 LogCleanupTask 启动完成，执行间隔: "1.00:00:00"
+[2025-08-04 15:36:09.353 INF] CampusTrade.API.Services.ScheduledTasks.LogCleanupTask: 定时任务 LogCleanupTask 开始执行 (第 1 次)
+[2025-08-04 15:36:09.358 INF] CampusTrade.API.Services.ScheduledTasks.ProductManagementTask: 定时任务 ProductManagementTask 开始启动
+[2025-08-04 15:36:09.362 INF] CampusTrade.API.Services.ScheduledTasks.ProductManagementTask: 定时任务 ProductManagementTask 启动完成，执行间隔: "1.00:00:00"
+[2025-08-04 15:36:09.362 INF] CampusTrade.API.Services.ScheduledTasks.ProductManagementTask: 定时任务 ProductManagementTask 开始执行 (第 1 次)
+[2025-08-04 15:36:09.366 INF] CampusTrade.API.Services.ScheduledTasks.OrderProcessingTask: 定时任务 OrderProcessingTask 开始启动
+[2025-08-04 15:36:09.370 INF] CampusTrade.API.Services.ScheduledTasks.OrderProcessingTask: 定时任务 OrderProcessingTask 启动完成，执行间隔: "06:00:00"
+[2025-08-04 15:36:09.370 INF] CampusTrade.API.Services.ScheduledTasks.OrderProcessingTask: 定时任务 OrderProcessingTask 开始执行 (第 1 次)
+[2025-08-04 15:36:09.376 INF] CampusTrade.API.Services.ScheduledTasks.UserCreditScoreCalculationTask: 定时任务 UserCreditScoreCalculationTask 开始启动
+[2025-08-04 15:36:09.381 INF] CampusTrade.API.Services.ScheduledTasks.UserCreditScoreCalculationTask: 定时任务 UserCreditScoreCalculationTask 启动完成，执行间隔: "7.00:00:00"
+[2025-08-04 15:36:09.381 INF] CampusTrade.API.Services.ScheduledTasks.UserCreditScoreCalculationTask: 定时任务 UserCreditScoreCalculationTask 开始执行 (第 1 次)
+[2025-08-04 15:36:09.384 INF] CampusTrade.API.Services.ScheduledTasks.StatisticalAnalysisTask: 定时任务 StatisticalAnalysisTask 开始启动
+[2025-08-04 15:36:09.387 INF] CampusTrade.API.Services.ScheduledTasks.StatisticalAnalysisTask: 定时任务 StatisticalAnalysisTask 启动完成，执行间隔: "1.00:00:00"
+[2025-08-04 15:36:09.387 INF] CampusTrade.API.Services.ScheduledTasks.StatisticalAnalysisTask: 定时任务 StatisticalAnalysisTask 开始执行 (第 1 次)
+[2025-08-04 15:36:09.391 INF] CampusTrade.API.Services.ScheduledTasks.NotificationPushTask: 定时任务 NotificationPushTask 开始启动
+[2025-08-04 15:36:09.394 INF] CampusTrade.API.Services.ScheduledTasks.NotificationPushTask: 定时任务 NotificationPushTask 启动完成，执行间隔: "01:00:00"
+[2025-08-04 15:36:09.395 INF] CampusTrade.API.Services.ScheduledTasks.NotificationPushTask: 定时任务 NotificationPushTask 开始执行 (第 1 次)
+[2025-08-04 15:36:09.401 INF] CampusTrade.API.Services.Background.CacheRefreshBackgroundService: Cache Refresh Service is starting with initial delay of "00:00:30"
+[2025-08-04 15:36:09.429 WRN] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: The WebRootPath was not found: C:\Users\11945\Desktop\Mallorn\Backend\CampusTradeSystem\CampusTrade.API\wwwroot. Static files may be unavailable.
+[2025-08-04 15:36:09.471 ERR] Microsoft.Extensions.Hosting.Internal.Host: Hosting failed to start
+System.IO.IOException: Failed to bind to address http://[::1]:5085: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+ ---> System.Net.Sockets.SocketException (10048): 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+[2025-08-04 15:36:09.529 INF] CampusTrade.API.Services.ScheduledTasks.NotificationPushTask: 定时任务 NotificationPushTask 资源已释放
+[2025-08-04 15:36:09.529 INF] CampusTrade.API.Services.Background.CacheRefreshBackgroundService: Cache Refresh Service was cancelled during initial delay
+[2025-08-04 15:36:09.537 INF] CampusTrade.API.Services.ScheduledTasks.StatisticalAnalysisTask: 定时任务 StatisticalAnalysisTask 资源已释放
+[2025-08-04 15:36:09.543 INF] CampusTrade.API.Services.ScheduledTasks.UserCreditScoreCalculationTask: 定时任务 UserCreditScoreCalculationTask 资源已释放
+[2025-08-04 15:36:09.547 INF] CampusTrade.API.Services.ScheduledTasks.OrderProcessingTask: 定时任务 OrderProcessingTask 资源已释放
+[2025-08-04 15:36:09.549 INF] CampusTrade.API.Services.ScheduledTasks.ProductManagementTask: 定时任务 ProductManagementTask 资源已释放
+[2025-08-04 15:36:09.552 INF] CampusTrade.API.Services.ScheduledTasks.LogCleanupTask: 定时任务 LogCleanupTask 资源已释放
+[2025-08-04 15:36:09.556 INF] CampusTrade.API.Services.ScheduledTasks.TokenCleanupTask: 定时任务 TokenCleanupTask 资源已释放
+[2025-08-04 15:47:33.945 INF] : Campus Trade API 启动完成
+[2025-08-04 15:47:34.000 INF] CampusTrade.API.Services.Background.NotificationBackgroundService: 通知发送后台服务启动
+[2025-08-04 15:47:34.831 INF] CampusTrade.API.Services.ScheduledTasks.TokenCleanupTask: 定时任务 TokenCleanupTask 开始启动
+[2025-08-04 15:47:34.836 INF] CampusTrade.API.Services.ScheduledTasks.TokenCleanupTask: 定时任务 TokenCleanupTask 启动完成，执行间隔: "01:00:00"
+[2025-08-04 15:47:34.837 INF] CampusTrade.API.Services.ScheduledTasks.TokenCleanupTask: 定时任务 TokenCleanupTask 开始执行 (第 1 次)
+[2025-08-04 15:47:34.841 INF] CampusTrade.API.Services.ScheduledTasks.LogCleanupTask: 定时任务 LogCleanupTask 开始启动
+[2025-08-04 15:47:34.844 INF] CampusTrade.API.Services.ScheduledTasks.LogCleanupTask: 定时任务 LogCleanupTask 启动完成，执行间隔: "1.00:00:00"
+[2025-08-04 15:47:34.844 INF] CampusTrade.API.Services.ScheduledTasks.LogCleanupTask: 定时任务 LogCleanupTask 开始执行 (第 1 次)
+[2025-08-04 15:47:34.846 INF] CampusTrade.API.Services.ScheduledTasks.ProductManagementTask: 定时任务 ProductManagementTask 开始启动
+[2025-08-04 15:47:34.852 INF] CampusTrade.API.Services.ScheduledTasks.ProductManagementTask: 定时任务 ProductManagementTask 启动完成，执行间隔: "1.00:00:00"
+[2025-08-04 15:47:34.852 INF] CampusTrade.API.Services.ScheduledTasks.ProductManagementTask: 定时任务 ProductManagementTask 开始执行 (第 1 次)
+[2025-08-04 15:47:34.856 INF] CampusTrade.API.Services.ScheduledTasks.OrderProcessingTask: 定时任务 OrderProcessingTask 开始启动
+[2025-08-04 15:47:34.857 INF] CampusTrade.API.Services.ScheduledTasks.OrderProcessingTask: 定时任务 OrderProcessingTask 启动完成，执行间隔: "06:00:00"
+[2025-08-04 15:47:34.858 INF] CampusTrade.API.Services.ScheduledTasks.OrderProcessingTask: 定时任务 OrderProcessingTask 开始执行 (第 1 次)
+[2025-08-04 15:47:34.859 INF] CampusTrade.API.Services.ScheduledTasks.ProductManagementTask: 开始执行商品智能下架任务
+[2025-08-04 15:47:34.860 INF] CampusTrade.API.Services.ScheduledTasks.UserCreditScoreCalculationTask: 定时任务 UserCreditScoreCalculationTask 开始启动
+[2025-08-04 15:47:34.871 INF] CampusTrade.API.Services.ScheduledTasks.UserCreditScoreCalculationTask: 定时任务 UserCreditScoreCalculationTask 启动完成，执行间隔: "7.00:00:00"
+[2025-08-04 15:47:34.871 INF] CampusTrade.API.Services.ScheduledTasks.UserCreditScoreCalculationTask: 定时任务 UserCreditScoreCalculationTask 开始执行 (第 1 次)
+[2025-08-04 15:47:34.879 INF] CampusTrade.API.Services.ScheduledTasks.StatisticalAnalysisTask: 定时任务 StatisticalAnalysisTask 开始启动
+[2025-08-04 15:47:34.883 INF] CampusTrade.API.Services.ScheduledTasks.StatisticalAnalysisTask: 定时任务 StatisticalAnalysisTask 启动完成，执行间隔: "1.00:00:00"
+[2025-08-04 15:47:34.883 INF] CampusTrade.API.Services.ScheduledTasks.StatisticalAnalysisTask: 定时任务 StatisticalAnalysisTask 开始执行 (第 1 次)
+[2025-08-04 15:47:34.889 INF] CampusTrade.API.Services.ScheduledTasks.NotificationPushTask: 定时任务 NotificationPushTask 开始启动
+[2025-08-04 15:47:34.893 INF] CampusTrade.API.Services.ScheduledTasks.NotificationPushTask: 定时任务 NotificationPushTask 启动完成，执行间隔: "01:00:00"
+[2025-08-04 15:47:34.893 INF] CampusTrade.API.Services.ScheduledTasks.NotificationPushTask: 定时任务 NotificationPushTask 开始执行 (第 1 次)
+[2025-08-04 15:47:34.899 INF] CampusTrade.API.Services.Background.CacheRefreshBackgroundService: Cache Refresh Service is starting with initial delay of "00:00:30"
+[2025-08-04 15:47:34.929 WRN] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware: The WebRootPath was not found: C:\Users\11945\Desktop\Mallorn\Backend\CampusTradeSystem\CampusTrade.API\wwwroot. Static files may be unavailable.
+[2025-08-04 15:47:34.963 ERR] Microsoft.Extensions.Hosting.Internal.Host: Hosting failed to start
+System.IO.IOException: Failed to bind to address http://[::1]:5085: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+ ---> System.Net.Sockets.SocketException (10048): 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+[2025-08-04 15:47:34.985 INF] CampusTrade.API.Services.Background.CacheRefreshBackgroundService: Cache Refresh Service was cancelled during initial delay
+[2025-08-04 15:47:34.985 INF] CampusTrade.API.Services.ScheduledTasks.NotificationPushTask: 定时任务 NotificationPushTask 资源已释放
+[2025-08-04 15:47:34.990 INF] CampusTrade.API.Services.ScheduledTasks.StatisticalAnalysisTask: 定时任务 StatisticalAnalysisTask 资源已释放
+[2025-08-04 15:47:34.994 INF] CampusTrade.API.Services.ScheduledTasks.UserCreditScoreCalculationTask: 定时任务 UserCreditScoreCalculationTask 资源已释放
+[2025-08-04 15:47:34.997 INF] CampusTrade.API.Services.ScheduledTasks.OrderProcessingTask: 定时任务 OrderProcessingTask 资源已释放
+[2025-08-04 15:47:35.001 INF] CampusTrade.API.Services.ScheduledTasks.ProductManagementTask: 定时任务 ProductManagementTask 资源已释放
+[2025-08-04 15:47:35.005 INF] CampusTrade.API.Services.ScheduledTasks.LogCleanupTask: 定时任务 LogCleanupTask 资源已释放
+[2025-08-04 15:47:35.008 INF] CampusTrade.API.Services.ScheduledTasks.TokenCleanupTask: 定时任务 TokenCleanupTask 资源已释放

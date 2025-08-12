@@ -1,0 +1,1912 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "Campus Trade API",
+    "description": "校园交易平台后端API文档",
+    "contact": {
+      "name": "Campus Trade Team",
+      "email": "admin@campustrade.com"
+    },
+    "version": "v1.0"
+  },
+  "paths": {
+    "/api/Auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "用户登录",
+        "requestBody": {
+          "description": "登录请求",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginWithDeviceRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginWithDeviceRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginWithDeviceRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/register": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "用户注册",
+        "requestBody": {
+          "description": "注册信息",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/validate-student": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "验证学生身份",
+        "requestBody": {
+          "description": "验证信息",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StudentValidationDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StudentValidationDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/StudentValidationDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/user/{username}": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "获取用户信息",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "description": "用户名",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/logout": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "退出登录",
+        "requestBody": {
+          "description": "退出请求",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LogoutRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LogoutRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LogoutRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/logout-all": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "退出所有设备",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/send-verification-code": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "发送邮箱验证码",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendCodeDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendCodeDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendCodeDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/verify-code": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "验证邮箱验证码",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VerifyCodeDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VerifyCodeDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/VerifyCodeDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/verify-email": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "处理邮箱验证链接（用户点击链接后调用）",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/CacheManagement/stats": {
+      "get": {
+        "tags": [
+          "CacheManagement"
+        ],
+        "summary": "获取缓存统计信息",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/CacheManagement/item/{key}": {
+      "delete": {
+        "tags": [
+          "CacheManagement"
+        ],
+        "summary": "清除指定缓存项",
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "description": "缓存键",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/CacheManagement/user/{userId}": {
+      "delete": {
+        "tags": [
+          "CacheManagement"
+        ],
+        "summary": "清除用户缓存",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "用户ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/CacheManagement/product/{productId}": {
+      "delete": {
+        "tags": [
+          "CacheManagement"
+        ],
+        "summary": "清除商品缓存",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "商品ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/CacheManagement/category": {
+      "delete": {
+        "tags": [
+          "CacheManagement"
+        ],
+        "summary": "清除分类缓存",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/CacheManagement/config": {
+      "delete": {
+        "tags": [
+          "CacheManagement"
+        ],
+        "summary": "清除系统配置缓存",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/CacheManagement/prefix/{prefix}": {
+      "delete": {
+        "tags": [
+          "CacheManagement"
+        ],
+        "summary": "按前缀清除缓存",
+        "parameters": [
+          {
+            "name": "prefix",
+            "in": "path",
+            "description": "缓存键前缀",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/CacheManagement/all": {
+      "delete": {
+        "tags": [
+          "CacheManagement"
+        ],
+        "summary": "清除所有缓存（谨慎使用）",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/CacheManagement/refresh/category": {
+      "post": {
+        "tags": [
+          "CacheManagement"
+        ],
+        "summary": "手动刷新分类缓存",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/CacheManagement/refresh/product": {
+      "post": {
+        "tags": [
+          "CacheManagement"
+        ],
+        "summary": "手动刷新商品缓存",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/CacheManagement/refresh/config": {
+      "post": {
+        "tags": [
+          "CacheManagement"
+        ],
+        "summary": "手动刷新配置缓存",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dashboard/statistics": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "summary": "获取仪表盘统计数据",
+        "parameters": [
+          {
+            "name": "year",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "activityDays",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 30
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DashboardStatsDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DashboardStatsDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DashboardStatsDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Dashboard/export/excel": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "summary": "导出Excel报表",
+        "parameters": [
+          {
+            "name": "year",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dashboard/export/pdf": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "summary": "导出PDF报表",
+        "parameters": [
+          {
+            "name": "year",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/File/upload/product-image": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "summary": "上传商品图片",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "description": "图片文件",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "file": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/File/upload/report-evidence": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "summary": "上传举报证据",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "description": "证据文件",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "file": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/File/upload/avatar": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "summary": "上传用户头像",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "description": "头像文件",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "file": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/File/download/{fileName}": {
+      "get": {
+        "tags": [
+          "File"
+        ],
+        "summary": "下载文件",
+        "parameters": [
+          {
+            "name": "fileName",
+            "in": "path",
+            "description": "文件名",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/File/download/by-url": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "summary": "通过URL下载文件",
+        "requestBody": {
+          "description": "包含文件URL的请求",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FileUrlRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FileUrlRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FileUrlRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/File/files/{fileType}/{fileName}": {
+      "get": {
+        "tags": [
+          "File"
+        ],
+        "summary": "预览文件（直接访问）",
+        "parameters": [
+          {
+            "name": "fileType",
+            "in": "path",
+            "description": "文件类型",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fileName",
+            "in": "path",
+            "description": "文件名",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/File/{fileName}": {
+      "delete": {
+        "tags": [
+          "File"
+        ],
+        "summary": "删除文件",
+        "parameters": [
+          {
+            "name": "fileName",
+            "in": "path",
+            "description": "文件名",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/File/by-url": {
+      "delete": {
+        "tags": [
+          "File"
+        ],
+        "summary": "通过URL删除文件",
+        "requestBody": {
+          "description": "包含文件URL的请求",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FileUrlRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FileUrlRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FileUrlRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/File/delete/batch": {
+      "delete": {
+        "tags": [
+          "File"
+        ],
+        "summary": "批量删除文件",
+        "requestBody": {
+          "description": "文件名列表",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/File/delete/batch-by-url": {
+      "delete": {
+        "tags": [
+          "File"
+        ],
+        "summary": "通过URL批量删除文件",
+        "requestBody": {
+          "description": "包含文件URL列表的请求",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BatchFileUrlRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BatchFileUrlRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BatchFileUrlRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/File/exists/{fileName}": {
+      "get": {
+        "tags": [
+          "File"
+        ],
+        "summary": "检查文件是否存在",
+        "parameters": [
+          {
+            "name": "fileName",
+            "in": "path",
+            "description": "文件名",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/File/exists/by-url": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "summary": "通过URL检查文件是否存在",
+        "requestBody": {
+          "description": "包含文件URL的请求",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FileUrlRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FileUrlRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FileUrlRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/File/info/{fileName}": {
+      "get": {
+        "tags": [
+          "File"
+        ],
+        "summary": "获取文件信息",
+        "parameters": [
+          {
+            "name": "fileName",
+            "in": "path",
+            "description": "文件名",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/File/info/by-url": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "summary": "通过URL获取文件信息",
+        "requestBody": {
+          "description": "包含文件URL的请求",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FileUrlRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FileUrlRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FileUrlRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/File/upload/batch": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "summary": "批量上传文件",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "files": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    },
+                    "description": "文件列表"
+                  },
+                  "fileType": {
+                    "type": "string",
+                    "description": "文件类型"
+                  }
+                }
+              },
+              "encoding": {
+                "files": {
+                  "style": "form"
+                },
+                "fileType": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/File/extract-filename": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "summary": "从URL提取文件名",
+        "requestBody": {
+          "description": "包含文件URL的请求",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FileUrlRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FileUrlRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FileUrlRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/File/batch-exists": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "summary": "批量检查文件是否存在（通过URL）",
+        "requestBody": {
+          "description": "包含文件URL列表的请求",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BatchFileUrlRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BatchFileUrlRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BatchFileUrlRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/File/list": {
+      "get": {
+        "tags": [
+          "File"
+        ],
+        "summary": "获取所有文件列表",
+        "parameters": [
+          {
+            "name": "fileType",
+            "in": "query",
+            "description": "文件类型（可选）",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/File/stats": {
+      "get": {
+        "tags": [
+          "File"
+        ],
+        "summary": "获取文件统计信息",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "tags": [
+          "Health"
+        ],
+        "summary": "健康检查端点",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Home/status": {
+      "get": {
+        "tags": [
+          "Home"
+        ],
+        "summary": "获取API状态信息",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Home/health": {
+      "get": {
+        "tags": [
+          "Home"
+        ],
+        "summary": "获取健康检查信息",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Home/info": {
+      "get": {
+        "tags": [
+          "Home"
+        ],
+        "summary": "获取API信息",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Notification/create": {
+      "post": {
+        "tags": [
+          "Notification"
+        ],
+        "summary": "测试创建通知",
+        "requestBody": {
+          "description": "通知创建请求",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateNotificationRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateNotificationRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateNotificationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Notification/queue-stats": {
+      "get": {
+        "tags": [
+          "Notification"
+        ],
+        "summary": "获取通知队列状态",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Notification/process-queue": {
+      "post": {
+        "tags": [
+          "Notification"
+        ],
+        "summary": "手动触发队列处理",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Notification/user/{userId}/history": {
+      "get": {
+        "tags": [
+          "Notification"
+        ],
+        "summary": "获取用户通知历史",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "用户ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "页大小",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          },
+          {
+            "name": "pageIndex",
+            "in": "query",
+            "description": "页索引",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ScheduledTask/status": {
+      "get": {
+        "tags": [
+          "ScheduledTask"
+        ],
+        "summary": "获取所有定时任务状态",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ScheduledTask/{taskName}": {
+      "get": {
+        "tags": [
+          "ScheduledTask"
+        ],
+        "summary": "获取特定任务的详细信息",
+        "parameters": [
+          {
+            "name": "taskName",
+            "in": "path",
+            "description": "任务名称",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/ScheduledTask/health": {
+      "get": {
+        "tags": [
+          "ScheduledTask"
+        ],
+        "summary": "获取系统健康状态（包含定时任务监控）",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Token/refresh": {
+      "post": {
+        "tags": [
+          "Token"
+        ],
+        "summary": "刷新访问令牌",
+        "requestBody": {
+          "description": "刷新请求",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshTokenRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshTokenRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshTokenRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Token/validate": {
+      "post": {
+        "tags": [
+          "Token"
+        ],
+        "summary": "验证访问令牌",
+        "requestBody": {
+          "description": "验证请求",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidateTokenRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidateTokenRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidateTokenRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Token/revoke": {
+      "post": {
+        "tags": [
+          "Token"
+        ],
+        "summary": "撤销刷新令牌",
+        "requestBody": {
+          "description": "撤销请求",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RevokeTokenRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RevokeTokenRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RevokeTokenRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Token/active": {
+      "get": {
+        "tags": [
+          "Token"
+        ],
+        "summary": "获取用户的活跃令牌列表",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Token/cleanup": {
+      "post": {
+        "tags": [
+          "Token"
+        ],
+        "summary": "清理过期的令牌（管理员功能）",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Token/check-blacklist": {
+      "post": {
+        "tags": [
+          "Token"
+        ],
+        "summary": "检查Token是否在黑名单中",
+        "requestBody": {
+          "description": "检查请求",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CheckBlacklistRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CheckBlacklistRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CheckBlacklistRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BatchFileUrlRequest": {
+        "type": "object",
+        "properties": {
+          "FileUrls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "批量文件URL请求"
+      },
+      "CheckBlacklistRequest": {
+        "required": [
+          "jti"
+        ],
+        "type": "object",
+        "properties": {
+          "jti": {
+            "minLength": 1,
+            "type": "string",
+            "description": "JWT ID"
+          }
+        },
+        "additionalProperties": false,
+        "description": "黑名单检查请求DTO"
+      },
+      "CreateNotificationRequest": {
+        "type": "object",
+        "properties": {
+          "RecipientId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "TemplateId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Parameters": {
+            "type": "object",
+            "additionalProperties": { },
+            "nullable": true
+          },
+          "OrderId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "创建通知请求模型"
+      },
+      "DashboardStatsDto": {
+        "type": "object",
+        "properties": {
+          "MonthlyTransactions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MonthlyTransactionDto"
+            },
+            "nullable": true
+          },
+          "PopularProducts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PopularProductDto"
+            },
+            "nullable": true
+          },
+          "UserActivities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserActivityDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FileUrlRequest": {
+        "type": "object",
+        "properties": {
+          "FileUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "文件URL请求"
+      },
+      "LoginWithDeviceRequest": {
+        "required": [
+          "password",
+          "username"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string",
+            "description": "用户名或邮箱"
+          },
+          "password": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string",
+            "description": "密码"
+          },
+          "device_id": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string",
+            "description": "设备标识",
+            "nullable": true
+          },
+          "device_name": {
+            "maxLength": 200,
+            "minLength": 0,
+            "type": "string",
+            "description": "设备名称",
+            "nullable": true
+          },
+          "remember_me": {
+            "type": "boolean",
+            "description": "是否记住登录（影响Token过期时间）"
+          }
+        },
+        "additionalProperties": false,
+        "description": "用户登录请求"
+      },
+      "LogoutRequest": {
+        "required": [
+          "refresh_token"
+        ],
+        "type": "object",
+        "properties": {
+          "refresh_token": {
+            "minLength": 1,
+            "type": "string",
+            "description": "刷新令牌"
+          }
+        },
+        "additionalProperties": false,
+        "description": "退出登录请求DTO"
+      },
+      "MonthlyTransactionDto": {
+        "type": "object",
+        "properties": {
+          "Month": {
+            "type": "string",
+            "nullable": true
+          },
+          "OrderCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "TotalAmount": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PopularProductDto": {
+        "type": "object",
+        "properties": {
+          "ProductId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ProductTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "OrderCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RefreshTokenRequest": {
+        "required": [
+          "refresh_token"
+        ],
+        "type": "object",
+        "properties": {
+          "refresh_token": {
+            "minLength": 1,
+            "type": "string",
+            "description": "待刷新的RefreshToken"
+          },
+          "device_id": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string",
+            "description": "设备标识",
+            "nullable": true
+          },
+          "ip_address": {
+            "maxLength": 45,
+            "minLength": 0,
+            "type": "string",
+            "description": "客户端IP地址（可选，服务器端也会自动获取）",
+            "nullable": true
+          },
+          "user_agent": {
+            "maxLength": 500,
+            "minLength": 0,
+            "type": "string",
+            "description": "用户代理信息（可选，服务器端也会自动获取）",
+            "nullable": true
+          },
+          "enable_rotation": {
+            "type": "boolean",
+            "description": "是否启用Token轮换（覆盖服务器配置）",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Token刷新请求模型"
+      },
+      "RegisterDto": {
+        "required": [
+          "confirm_password",
+          "email",
+          "name",
+          "password",
+          "student_id"
+        ],
+        "type": "object",
+        "properties": {
+          "student_id": {
+            "maxLength": 20,
+            "minLength": 0,
+            "type": "string",
+            "description": "学号"
+          },
+          "name": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string",
+            "description": "姓名"
+          },
+          "email": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string",
+            "description": "邮箱地址",
+            "format": "email"
+          },
+          "password": {
+            "maxLength": 100,
+            "minLength": 6,
+            "type": "string",
+            "description": "密码"
+          },
+          "confirm_password": {
+            "minLength": 1,
+            "type": "string",
+            "description": "确认密码"
+          },
+          "username": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "description": "用户名（可选）",
+            "nullable": true
+          },
+          "phone": {
+            "maxLength": 20,
+            "minLength": 0,
+            "type": "string",
+            "description": "手机号（可选）",
+            "format": "tel",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "用户注册请求DTO"
+      },
+      "RevokeTokenRequest": {
+        "required": [
+          "token"
+        ],
+        "type": "object",
+        "properties": {
+          "token": {
+            "minLength": 1,
+            "type": "string",
+            "description": "待撤销的Token"
+          },
+          "reason": {
+            "maxLength": 200,
+            "minLength": 0,
+            "type": "string",
+            "description": "撤销原因",
+            "nullable": true
+          },
+          "revoke_all": {
+            "type": "boolean",
+            "description": "是否撤销所有Token（该用户的所有设备）"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Token撤销请求模型"
+      },
+      "SendCodeDto": {
+        "type": "object",
+        "properties": {
+          "UserId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Email": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "发送验证码DTO"
+      },
+      "StudentValidationDto": {
+        "required": [
+          "name",
+          "student_id"
+        ],
+        "type": "object",
+        "properties": {
+          "student_id": {
+            "minLength": 1,
+            "type": "string",
+            "description": "学号"
+          },
+          "name": {
+            "minLength": 1,
+            "type": "string",
+            "description": "姓名"
+          }
+        },
+        "additionalProperties": false,
+        "description": "学生身份验证DTO"
+      },
+      "UserActivityDto": {
+        "type": "object",
+        "properties": {
+          "Date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "ActiveUserCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "NewUserCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ValidateTokenRequest": {
+        "required": [
+          "access_token"
+        ],
+        "type": "object",
+        "properties": {
+          "access_token": {
+            "minLength": 1,
+            "type": "string",
+            "description": "访问令牌"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Token验证请求DTO"
+      },
+      "VerifyCodeDto": {
+        "type": "object",
+        "properties": {
+          "UserId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Code": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "确认验证码DTO"
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "JWT Authorization header using the Bearer scheme. Enter 'Bearer' [space] and then your token in the text input below.",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}
